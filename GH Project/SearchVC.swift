@@ -12,6 +12,7 @@ class SearchVC: UIViewController {
     let logoImageView = UIImageView()
     let userTextField = GFTextField()
     let callToAction = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
+    var isUserTextfieldEntered: Bool {return !userTextField.text!.isEmpty }
     
 
     override func viewDidLoad() {
