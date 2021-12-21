@@ -12,8 +12,6 @@ class FavoritesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.isNavigationBarHidden = false
-        UINavigationBar.appearance().prefersLargeTitles = true
         view.backgroundColor = .systemBackground
     }
     
