@@ -23,19 +23,19 @@ class GFTextField: UITextField {
         translatesAutoresizingMaskIntoConstraints = false
         
         layer.cornerRadius = 10
-        layer.borderColor = UIColor.systemGray4.cgColor
-        layer.borderWidth = 2
+        layer.borderColor  = UIColor.systemGray4.cgColor
+        layer.borderWidth  = 2
         
-        textColor = .label
-        tintColor = .label
+        textColor     = .label
+        tintColor     = .label
         textAlignment = .center
         font = UIFont.preferredFont(forTextStyle: .title2)
         adjustsFontSizeToFitWidth = true
-        minimumFontSize = 12
+        minimumFontSize           = 12
         
-        backgroundColor = .tertiarySystemBackground
+        backgroundColor    = .tertiarySystemBackground
         autocorrectionType = .no
-        returnKeyType = .search
-        placeholder = "Enter a User Name"
+        returnKeyType      = .search
+        placeholder        = "Enter a User Name"
     }
 }
