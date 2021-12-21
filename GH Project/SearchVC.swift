@@ -36,17 +36,16 @@ class SearchVC: UIViewController {
     }
     
     @objc func pushFollowersToVC(){
-        guard isUserTextfieldEntered else{
-            print("No user entered")
-            return
-        }
+        guard isUserTextfieldEntered else{return}
+        
         let followersVC      = FollowersVC()
         followersVC.title    = userTextField.text
         followersVC.userName = userTextField.text
         
         navigationController?.pushViewController(followersVC, animated: true)
     }
-    
+    //MARK: - Configurations
+
     func configureLogoImageView() {
         view.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
