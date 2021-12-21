@@ -17,6 +17,7 @@
 		31BB1556276FF67700ECE3BA /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BB1555276FF67700ECE3BA /* GFTextField.swift */; };
 		31BB155827720BD800ECE3BA /* FollowersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BB155727720BD800ECE3BA /* FollowersVC.swift */; };
 		31BB155A277265CA00ECE3BA /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BB1559277265CA00ECE3BA /* GFTitleLabel.swift */; };
+		31BB155C2772697900ECE3BA /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BB155B2772697900ECE3BA /* GFBodyLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		31BB1555276FF67700ECE3BA /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		31BB155727720BD800ECE3BA /* FollowersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersVC.swift; sourceTree = "<group>"; };
 		31BB1559277265CA00ECE3BA /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
+		31BB155B2772697900ECE3BA /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				31BB1555276FF67700ECE3BA /* GFTextField.swift */,
 				31BB155727720BD800ECE3BA /* FollowersVC.swift */,
 				31BB1559277265CA00ECE3BA /* GFTitleLabel.swift */,
+				31BB155B2772697900ECE3BA /* GFBodyLabel.swift */,
 			);
 			path = "GH Project";
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				31BB1552276FCFBE00ECE3BA /* FavoritesVC.swift in Sources */,
 				31BB155827720BD800ECE3BA /* FollowersVC.swift in Sources */,
 				31BB1554276FF45A00ECE3BA /* GFButton.swift in Sources */,
+				31BB155C2772697900ECE3BA /* GFBodyLabel.swift in Sources */,
 				31BB155A277265CA00ECE3BA /* GFTitleLabel.swift in Sources */,
 				31BB1550276FCFAE00ECE3BA /* SearchVC.swift in Sources */,
 				31BB153C276FCEE200ECE3BA /* AppDelegate.swift in Sources */,
