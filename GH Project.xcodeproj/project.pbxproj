@@ -53,6 +53,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3199857F2772F24C00A41143 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				31BB154F276FCFAE00ECE3BA /* SearchVC.swift */,
+				31BB1551276FCFBE00ECE3BA /* FavoritesVC.swift */,
+				31BB155727720BD800ECE3BA /* FollowersVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		319985802772F26200A41143 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				31BB1553276FF45A00ECE3BA /* GFButton.swift */,
+				31BB1555276FF67700ECE3BA /* GFTextField.swift */,
+				31BB1559277265CA00ECE3BA /* GFTitleLabel.swift */,
+				31BB155B2772697900ECE3BA /* GFBodyLabel.swift */,
+				31BB155D27726A5300ECE3BA /* GFAlertVC.swift */,
+				31BB155F27726AB300ECE3BA /* GFContainerView.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		319985812772F28500A41143 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				31BB153B276FCEE200ECE3BA /* AppDelegate.swift */,
+				31BB153D276FCEE200ECE3BA /* SceneDelegate.swift */,
+				31BB1544276FCEE200ECE3BA /* Assets.xcassets */,
+				31BB1546276FCEE200ECE3BA /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		319985822772F29D00A41143 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				31BB156127727C0F00ECE3BA /* UIViewController+Ext.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		31BB152F276FCEE200ECE3BA = {
 			isa = PBXGroup;
 			children = (
@@ -72,21 +114,11 @@
 		31BB153A276FCEE200ECE3BA /* GH Project */ = {
 			isa = PBXGroup;
 			children = (
-				31BB153B276FCEE200ECE3BA /* AppDelegate.swift */,
-				31BB153D276FCEE200ECE3BA /* SceneDelegate.swift */,
-				31BB1544276FCEE200ECE3BA /* Assets.xcassets */,
-				31BB1546276FCEE200ECE3BA /* LaunchScreen.storyboard */,
+				319985802772F26200A41143 /* Custom Views */,
+				3199857F2772F24C00A41143 /* Screens */,
+				319985822772F29D00A41143 /* Extentions */,
+				319985812772F28500A41143 /* Supporting Files */,
 				31BB1549276FCEE300ECE3BA /* Info.plist */,
-				31BB154F276FCFAE00ECE3BA /* SearchVC.swift */,
-				31BB1551276FCFBE00ECE3BA /* FavoritesVC.swift */,
-				31BB1553276FF45A00ECE3BA /* GFButton.swift */,
-				31BB1555276FF67700ECE3BA /* GFTextField.swift */,
-				31BB155727720BD800ECE3BA /* FollowersVC.swift */,
-				31BB1559277265CA00ECE3BA /* GFTitleLabel.swift */,
-				31BB155B2772697900ECE3BA /* GFBodyLabel.swift */,
-				31BB155D27726A5300ECE3BA /* GFAlertVC.swift */,
-				31BB155F27726AB300ECE3BA /* GFContainerView.swift */,
-				31BB156127727C0F00ECE3BA /* UIViewController+Ext.swift */,
 			);
 			path = "GH Project";
 			sourceTree = "<group>";

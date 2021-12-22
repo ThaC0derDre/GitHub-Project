@@ -37,7 +37,7 @@ class SearchVC: UIViewController {
     
     @objc func pushFollowersToVC(){
         guard isUserTextfieldEntered else{
-            presentGFAlertOnMainThread(title: "Empty user name", message: "Please enter user name", button: "OK")
+            presentGFAlertOnMainThread(title: "EMPTY USER NAME", message: "Please enter user name", button: "OK")
             return
             
         }
