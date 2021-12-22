@@ -16,18 +16,19 @@ class FollowersVC: UIViewController {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        NetworkManager.shared.getFollowers(for: userName, page: 1) { (followers, errorMessage) in
-            //Handle Error
-            guard let followers = followers else{
-                self.presentGFAlertOnMainThread(title: "Error", message: errorMessage!.rawValue, button: "Ok")
+        NetworkManager.shared.getFollowers(for: userName, page: 1) { result in
+           
+            switch result{
+            case .success(let followers):
+                print(followers)
+                
+            case .failure(let error):
+                self.presentGFAlertOnMainThread(title: "Error", message: error.rawValue, button: "Ok")
                 //Pop back to Search if error
                 DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
               }
-                return
             }
-            print(followers.count)
-            print(followers)
         }
     }
     override func viewWillAppear(_ animated: Bool) {
