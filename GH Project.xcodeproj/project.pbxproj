@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		319985852773005400A41143 /* Followers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319985842773005400A41143 /* Followers.swift */; };
+		31998587277300B300A41143 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31998586277300B300A41143 /* User.swift */; };
 		31BB153C276FCEE200ECE3BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BB153B276FCEE200ECE3BA /* AppDelegate.swift */; };
 		31BB153E276FCEE200ECE3BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BB153D276FCEE200ECE3BA /* SceneDelegate.swift */; };
 		31BB1545276FCEE200ECE3BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31BB1544276FCEE200ECE3BA /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		319985842773005400A41143 /* Followers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Followers.swift; sourceTree = "<group>"; };
+		31998586277300B300A41143 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		31BB1538276FCEE200ECE3BA /* GH Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GH Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31BB153B276FCEE200ECE3BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31BB153D276FCEE200ECE3BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,15 @@
 			path = Extentions;
 			sourceTree = "<group>";
 		};
+		319985832773001D00A41143 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				319985842773005400A41143 /* Followers.swift */,
+				31998586277300B300A41143 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		31BB152F276FCEE200ECE3BA = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +127,7 @@
 		31BB153A276FCEE200ECE3BA /* GH Project */ = {
 			isa = PBXGroup;
 			children = (
+				319985832773001D00A41143 /* Models */,
 				319985802772F26200A41143 /* Custom Views */,
 				3199857F2772F24C00A41143 /* Screens */,
 				319985822772F29D00A41143 /* Extentions */,
@@ -199,8 +213,10 @@
 				31BB156027726AB300ECE3BA /* GFContainerView.swift in Sources */,
 				31BB155827720BD800ECE3BA /* FollowersVC.swift in Sources */,
 				31BB1554276FF45A00ECE3BA /* GFButton.swift in Sources */,
+				31998587277300B300A41143 /* User.swift in Sources */,
 				31BB155E27726A5300ECE3BA /* GFAlertVC.swift in Sources */,
 				31BB155C2772697900ECE3BA /* GFBodyLabel.swift in Sources */,
+				319985852773005400A41143 /* Followers.swift in Sources */,
 				31BB155A277265CA00ECE3BA /* GFTitleLabel.swift in Sources */,
 				31BB1550276FCFAE00ECE3BA /* SearchVC.swift in Sources */,
 				31BB153C276FCEE200ECE3BA /* AppDelegate.swift in Sources */,
