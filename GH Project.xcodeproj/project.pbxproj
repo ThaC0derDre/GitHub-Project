@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		315514FB277378A300D165EB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315514FA277378A300D165EB /* NetworkManager.swift */; };
+		315514FE2773919000D165EB /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315514FD2773919000D165EB /* ErrorMessage.swift */; };
 		319985852773005400A41143 /* Followers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319985842773005400A41143 /* Followers.swift */; };
 		31998587277300B300A41143 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31998586277300B300A41143 /* User.swift */; };
 		31BB153C276FCEE200ECE3BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BB153B276FCEE200ECE3BA /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		315514FA277378A300D165EB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		315514FD2773919000D165EB /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		319985842773005400A41143 /* Followers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Followers.swift; sourceTree = "<group>"; };
 		31998586277300B300A41143 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		31BB1538276FCEE200ECE3BA /* GH Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GH Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +67,14 @@
 				315514FA277378A300D165EB /* NetworkManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		315514FC2773917A00D165EB /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				315514FD2773919000D165EB /* ErrorMessage.swift */,
+			);
+			path = Utilites;
 			sourceTree = "<group>";
 		};
 		3199857F2772F24C00A41143 /* Screens */ = {
@@ -137,6 +147,7 @@
 		31BB153A276FCEE200ECE3BA /* GH Project */ = {
 			isa = PBXGroup;
 			children = (
+				315514FC2773917A00D165EB /* Utilites */,
 				315514F92773782800D165EB /* Managers */,
 				319985832773001D00A41143 /* Models */,
 				319985802772F26200A41143 /* Custom Views */,
@@ -230,6 +241,7 @@
 				319985852773005400A41143 /* Followers.swift in Sources */,
 				31BB155A277265CA00ECE3BA /* GFTitleLabel.swift in Sources */,
 				31BB1550276FCFAE00ECE3BA /* SearchVC.swift in Sources */,
+				315514FE2773919000D165EB /* ErrorMessage.swift in Sources */,
 				315514FB277378A300D165EB /* NetworkManager.swift in Sources */,
 				31BB153C276FCEE200ECE3BA /* AppDelegate.swift in Sources */,
 				31BB153E276FCEE200ECE3BA /* SceneDelegate.swift in Sources */,
