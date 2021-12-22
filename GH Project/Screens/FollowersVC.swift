@@ -20,6 +20,10 @@ class FollowersVC: UIViewController {
             //Handle Error
             guard let followers = followers else{
                 self.presentGFAlertOnMainThread(title: "Error", message: errorMessage!.rawValue, button: "Ok")
+                //Pop back to Search if error
+                DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+              }
                 return
             }
             print(followers.count)
