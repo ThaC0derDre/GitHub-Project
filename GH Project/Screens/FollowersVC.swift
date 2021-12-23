@@ -20,8 +20,8 @@ class FollowersVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        getFollowers()
         configureCollectionView()
+        getFollowers()
         configureDataSource()
        
     }
@@ -33,7 +33,7 @@ class FollowersVC: UIViewController {
     func configureCollectionView(){
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.configureCollectionFlowLayout(in: view))
         view.addSubview(collectionView)
-        collectionView.backgroundColor = .systemTeal
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
@@ -63,6 +63,7 @@ class FollowersVC: UIViewController {
     func configureDataSource(){
         dataSource = UICollectionViewDiffableDataSource<Section, Followers>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as! FollowerCell
+            cell.set(followers: follower)
             return cell
         })
     }
