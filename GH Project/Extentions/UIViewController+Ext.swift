@@ -7,6 +7,8 @@
 
 import UIKit
 
+fileprivate var containerView: UIView!
+
 extension UIViewController {
     func presentGFAlertOnMainThread(title: String, message: String, button: String){
         DispatchQueue.main.async {
@@ -15,5 +17,28 @@ extension UIViewController {
             alertVC.modalTransitionStyle   = .crossDissolve
             self.present(alertVC, animated: true)
         }
+    }
+    
+    func showLoadingView(){
+        containerView = UIView(frame: view.bounds)
+        view.addSubview(containerView)
+        
+        containerView.backgroundColor = .systemBackground
+        containerView.alpha           = 0
+        
+        UIView.animate(withDuration: 0.25) {
+            containerView.alpha = 0.8
+        }
+        
+        let activityIndicator = UIActivityIndicatorView()
+        containerView.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        activityIndicator.style = .large
+        activityIndicator.startAnimating()
     }
 }
