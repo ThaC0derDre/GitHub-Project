@@ -41,4 +41,11 @@ extension UIViewController {
         activityIndicator.style = .large
         activityIndicator.startAnimating()
     }
+    
+    func stopLoadingView(){
+        DispatchQueue.main.async {
+            containerView.removeFromSuperview()
+            containerView = nil
+        }
+    }
 }
