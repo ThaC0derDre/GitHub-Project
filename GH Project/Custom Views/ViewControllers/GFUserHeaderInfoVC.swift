@@ -21,7 +21,8 @@ class GFUserHeaderInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
-        
+        layoutUI()
+        configureUIElements()
     }
     
     init(user: User){
@@ -31,6 +32,16 @@ class GFUserHeaderInfoVC: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureUIElements(){
+        avatarImageView.downloadImage(from: user.avatarUrl)
+        usernameLabel.text          = user.login
+        nameLabel.text              = user.name ?? ""
+        locationLabel.text          = user.location ?? "No Location"
+        bioLabel.text               = user.bio ?? "No Bio Added Yet.."
+        bioLabel.numberOfLines      = 3
+        locationImageView.image     = UIImage(systemName: SFSymbols.location)
     }
     
     func addSubviews(){
@@ -77,7 +88,6 @@ class GFUserHeaderInfoVC: UIViewController {
             bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
             bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             bioLabel.heightAnchor.constraint(equalToConstant: 60)
-            
         ])
     }
 }
