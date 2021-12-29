@@ -53,16 +53,18 @@ class FollowersVC: UIViewController {
         NetworkManager.shared.getFollowers(for: userName, page: page) { [weak self] result in
             guard let self = self else { return }
             self.stopLoadingView()
+            
             switch result{
             case .success(let followers):
                 if followers.count < 100 {self.hasMoreFollowers = false}
                 self.followers.append(contentsOf: followers)
+                
                 if self.followers.isEmpty{
                     let message = "This user has no followers. Maybe be the first?"
                     DispatchQueue.main.async { self.showEmptyStateScreen(with: message, in: self.view) }
                     return
                 }
-                self.updateData(with: followers)
+                self.updateData(with: self.followers)
                 
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Error", message: error.rawValue, button: "Ok")
