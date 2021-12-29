@@ -11,9 +11,9 @@ enum ItemInfoType{ case repos, gists, followers, following }
 
 class GFItemInfoView: UIView {
 
-    let symbolImageView = UIImageView()
-    let titleLabel      = GFTitleLabel(textAlignment: .left, fontSize: 14)
-    let countLabel      = GFTitleLabel(textAlignment: .center, fontSize: 14)
+    var symbolImageView = UIImageView()
+    var titleLabel      = GFTitleLabel(textAlignment: .left, fontSize: 14)
+    var countLabel      = GFTitleLabel(textAlignment: .center, fontSize: 14)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,7 +51,21 @@ class GFItemInfoView: UIView {
     }
     
     func set(itemInfoType: ItemInfoType, withCount count: Int ){
-        
+        switch itemInfoType {
+    case .repos:
+            symbolImageView.image = UIImage(systemName: SFSymbols.repos)
+            titleLabel.text       = "Public repos"
+        case .gists:
+            symbolImageView.image = UIImage(systemName: SFSymbols.gists)
+            titleLabel.text       = "Public gists"
+        case .followers:
+            symbolImageView.image = UIImage(systemName: SFSymbols.followers)
+            titleLabel.text       = "Followers"
+        case .following:
+            symbolImageView.image = UIImage(systemName: SFSymbols.following)
+            titleLabel.text       = "Following"
+        }
+        countLabel.text           = String(count)
     }
     
 }
