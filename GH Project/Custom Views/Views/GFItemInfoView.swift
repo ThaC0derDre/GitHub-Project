@@ -7,6 +7,8 @@
 
 import UIKit
 
+enum ItemInfoType{ case repos, gists, followers, following }
+
 class GFItemInfoView: UIView {
 
     let symbolImageView = UIImageView()
@@ -46,6 +48,10 @@ class GFItemInfoView: UIView {
             countLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             countLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
+    }
+    
+    func set(itemInfoType: ItemInfoType, withCount count: Int ){
+        
     }
     
 }
