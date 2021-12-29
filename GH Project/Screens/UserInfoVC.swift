@@ -73,6 +73,7 @@ class UserInfoVC: UIViewController {
             itemView2.topAnchor.constraint(equalTo: itemView1.bottomAnchor, constant: padding),
             itemView2.heightAnchor.constraint(equalToConstant: itemHeight)
         ])
+        
         itemView1.backgroundColor = .systemIndigo
         itemView2.backgroundColor = .systemTeal
     }
