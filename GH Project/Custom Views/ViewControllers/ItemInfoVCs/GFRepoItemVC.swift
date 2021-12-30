@@ -17,7 +17,7 @@ class GFRepoItemVC: GFItemInfoVC {
     private func configure(){
         itemInfoView1.set(itemInfoType: .repos, withCount: user.publicRepos)
         itemInfoView2.set(itemInfoType: .gists, withCount: user.publicGists)
-        actionButton.set(backGroundColor: .systemPurple, title: "Get Repos")
+        actionButton.set(backGroundColor: .systemPurple, title: "Github Profile")
     }
     
 }
