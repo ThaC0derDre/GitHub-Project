@@ -10,7 +10,7 @@ import UIKit
 class GFItemInfoVC: UIViewController {
 
     let stackView     = UIStackView()
-    let itemInfoView  = GFItemInfoView()
+    let itemInfoView1  = GFItemInfoView()
     let itemInfoView2 = GFItemInfoView()
     let actionButton  = GFButton()
     
@@ -36,7 +36,7 @@ class GFItemInfoVC: UIViewController {
     func configureStackView(){
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
-        stackView.addArrangedSubview(itemInfoView)
+        stackView.addArrangedSubview(itemInfoView1)
         stackView.addArrangedSubview(itemInfoView2)
     }
     
