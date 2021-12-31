@@ -15,7 +15,7 @@ enum PersistenceManager {
         static let favorites = "favorites"
     }
     
-    static func retrieveFavorites(completed: @escaping (Result<[Followers],ErrorMessage>) -> Void){
+    static func retrieveFavorites(completed: @escaping (Result<[Followers],GFError>) -> Void){
         guard let favoritesData = defaults.object(forKey: Keys.favorites) as? Data else{
             completed(.success([]))
             return
@@ -30,7 +30,7 @@ enum PersistenceManager {
         }
     }
     
-    static func save(favorites: [Followers]) -> ErrorMessage? {
+    static func save(favorites: [Followers]) -> GFError? {
         do{
             let encoder = JSONEncoder()
             let encodedFavorites = try encoder.encode(favorites)

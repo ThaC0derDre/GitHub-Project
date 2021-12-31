@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		315514FB277378A300D165EB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315514FA277378A300D165EB /* NetworkManager.swift */; };
-		315514FE2773919000D165EB /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315514FD2773919000D165EB /* ErrorMessage.swift */; };
+		315514FE2773919000D165EB /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315514FD2773919000D165EB /* GFError.swift */; };
 		315515012773D2DF00D165EB /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315515002773D2DF00D165EB /* FollowerCell.swift */; };
 		315515042773D65400D165EB /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315515032773D65400D165EB /* GFAvatarImageView.swift */; };
 		315515062774BA0800D165EB /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315515052774BA0800D165EB /* UIHelper.swift */; };
@@ -44,7 +44,7 @@
 
 /* Begin PBXFileReference section */
 		315514FA277378A300D165EB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		315514FD2773919000D165EB /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		315514FD2773919000D165EB /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
 		315515002773D2DF00D165EB /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		315515032773D65400D165EB /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		315515052774BA0800D165EB /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		315514FC2773917A00D165EB /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
-				315514FD2773919000D165EB /* ErrorMessage.swift */,
+				315514FD2773919000D165EB /* GFError.swift */,
 				315515052774BA0800D165EB /* UIHelper.swift */,
 				31551516277AF3CE00D165EB /* Constants.swift */,
 			);
@@ -361,7 +361,7 @@
 				31BB1550276FCFAE00ECE3BA /* SearchVC.swift in Sources */,
 				3155151B277D34AB00D165EB /* GFItemInfoVC.swift in Sources */,
 				31551520277D3FEA00D165EB /* GFFollowerItemVC.swift in Sources */,
-				315514FE2773919000D165EB /* ErrorMessage.swift in Sources */,
+				315514FE2773919000D165EB /* GFError.swift in Sources */,
 				315515062774BA0800D165EB /* UIHelper.swift in Sources */,
 				31551522277DFE1200D165EB /* Date+Ext.swift in Sources */,
 				315514FB277378A300D165EB /* NetworkManager.swift in Sources */,

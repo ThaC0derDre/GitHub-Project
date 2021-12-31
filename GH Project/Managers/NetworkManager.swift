@@ -14,7 +14,7 @@ class NetworkManager {
     
     private init(){}
     
-    func getFollowers(for userName: String, page: Int, completed: @escaping(Result<[Followers], ErrorMessage>) -> Void){
+    func getFollowers(for userName: String, page: Int, completed: @escaping(Result<[Followers], GFError>) -> Void){
         let endpoint = baseUrl + "\(userName)/followers?per_page=100&page=\(page)"
         guard let url = URL(string: endpoint)else{
             completed(.failure(.invalidUsername))
@@ -49,7 +49,7 @@ class NetworkManager {
         task.resume()
     }
     
-    func getUserInfo(for userName: String, completed: @escaping(Result<User, ErrorMessage>) -> Void){
+    func getUserInfo(for userName: String, completed: @escaping(Result<User, GFError>) -> Void){
         let endpoint = baseUrl + "\(userName)"
         guard let url = URL(string: endpoint)else{
             completed(.failure(.invalidUsername))
