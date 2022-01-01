@@ -114,7 +114,6 @@ class FollowersVC: GFDataLoadingVC {
         DispatchQueue.main.async {
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }
-        
     }
     
     @objc func addButtonTapped(){
@@ -196,7 +195,7 @@ extension FollowersVC: FollowersListVCDelegate {
         hasMoreFollowers = true
         followers.removeAll()
         filteredFollowers.removeAll()
-        collectionView.scrollsToTop = true
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         if isSearching {
             navigationItem.searchController?.searchBar.text = ""
             navigationItem.searchController?.isActive       = false
