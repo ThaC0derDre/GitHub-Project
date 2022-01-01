@@ -104,7 +104,6 @@ class FollowersVC: GFDataLoadingVC {
         let searchController                    = UISearchController()
         searchController.searchBar.placeholder  = "Enter User Name"
         searchController.searchResultsUpdater   = self
-        searchController.searchBar.delegate     = self
         navigationItem.searchController         = searchController
     }
     
@@ -176,15 +175,15 @@ extension FollowersVC: UICollectionViewDelegate {
 
 extension FollowersVC: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let filter = searchController.searchBar.text, !filter.isEmpty else {return}
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            filteredFollowers.removeAll()
+            updateData(with: followers)
+            isSearching = false
+            return
+        }
         isSearching = true
         filteredFollowers = followers.filter{$0.login.lowercased().contains(filter.lowercased())}
         updateData(with: filteredFollowers)
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearching = false
-        updateData(with: followers)
     }
 }
 
