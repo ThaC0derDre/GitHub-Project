@@ -5,12 +5,17 @@
 //  Created by Andres Gutierrez on 12/27/21.
 //
 
-import Foundation
+import UIKit
 
 enum SFSymbols {
-    static let location  = "mappin.and.ellipse"
-    static let repos     = "folder"
-    static let gists     = "text.alignleft"
-    static let followers = "heart"
-    static let following = "person.2"
+    static let location  = UIImage(systemName:"mappin.and.ellipse")
+    static let repos     = UIImage(systemName:"folder")
+    static let gists     = UIImage(systemName:"text.alignleft")
+    static let followers = UIImage(systemName:"heart")
+    static let following = UIImage(systemName:"person.2")
+}
+
+enum Images {
+    static let placeholder      = UIImage(named: "avatar-placeholder")
+    static let emptyStateUser   = UIImage(named: "empty-state-logo")
 }
