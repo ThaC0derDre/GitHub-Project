@@ -39,6 +39,17 @@ class FollowersVC: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    init(username: String) {
+        super.init(nibName: nil, bundle: nil)
+        userName = username
+        title    = username
+        userName = username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func configureCollectionView(){
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.configureCollectionFlowLayout(in: view))
         view.addSubview(collectionView)
