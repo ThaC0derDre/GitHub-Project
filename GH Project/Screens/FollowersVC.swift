@@ -20,10 +20,10 @@ class FollowersVC: GFDataLoadingVC {
     var filteredFollowers: [Followers] = []
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Followers>!
-    var page             = 1
-    var hasMoreFollowers = true
-    var isSearching      = false
-
+    var page                        = 1
+    var hasMoreFollowers            = true
+    var isSearching                 = false
+    var lastScrollPosition: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -205,6 +205,18 @@ extension FollowersVC: FollowersListVCDelegate {
             isSearching      = false
         }
         getFollowers(username: username, page: page)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        lastScrollPosition = scrollView.contentOffset.y
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if lastScrollPosition < scrollView.contentOffset.y {
+            navigationItem.hidesSearchBarWhenScrolling = true
+        }else if lastScrollPosition > scrollView.contentOffset.y {
+            navigationItem.hidesSearchBarWhenScrolling = false
+        }
     }
     
     
