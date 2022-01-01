@@ -108,7 +108,33 @@ class FollowersVC: UIViewController {
     }
     
     @objc func addButtonTapped(){
-        print(#function)
+        showLoadingView()
+        
+        NetworkManager.shared.getUserInfo(for: userName) { [weak self] result in
+            guard let self = self else { return }
+            self.stopLoadingView()
+            
+            switch result {
+            case .success(let user):
+                let favorite = Followers(login: user.login, avatarUrl: user.avatarUrl)
+                
+                PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+                    guard let self = self else { return }
+                    
+                    guard let error = error else {
+                        
+                        self.presentGFAlertOnMainThread(title: "Added to Favorites!", message: "Favorited users can be found in the 'Favorites' tab below", button: "Ok")
+                        return
+                    }
+                    
+                    self.presentGFAlertOnMainThread(title: "Could not favorite user", message: error.rawValue, button: "Ok.")
+                }
+                
+            case .failure(let error):
+                self.presentGFAlertOnMainThread(title: "Could not favorite this user", message: error.rawValue, button: "Ok")
+            }
+        }
+        
     }
 }
 
