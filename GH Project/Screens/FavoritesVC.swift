@@ -18,6 +18,33 @@ class FavoritesVC: UIViewController {
         configureTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getFavorites()
+    }
+    
+    func getFavorites(){
+        PersistenceManager.retrieveFavorites { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let favorites):
+                if favorites.isEmpty {
+                    self.showEmptyStateScreen(with: "No favorites added.\nPress '+' to add a user to Favorites", in: self.view)
+                }else{
+                    
+                self.favorites = favorites
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.view.bringSubviewToFront(self.tableView)
+                }
+                }
+            case .failure(let error):
+                self.presentGFAlertOnMainThread(title: "Oh no..", message: error.rawValue, button: "Ok")
+            }
+        }
+    }
+    
     func configureViewController(){
         
         title                       = "Favorites"
