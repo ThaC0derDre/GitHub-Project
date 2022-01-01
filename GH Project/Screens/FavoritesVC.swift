@@ -46,14 +46,12 @@ class FavoritesVC: UIViewController {
     }
     
     func configureViewController(){
-        
         title                       = "Favorites"
         tableView.backgroundColor   = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func configureTableView(){
-        
         view.addSubview(tableView)
         tableView.frame      = view.bounds
         tableView.rowHeight  = 80

@@ -18,7 +18,7 @@ class UserInfoVC: UIViewController {
     let itemView1           = UIView()
     let itemView2           = UIView()
     var itemViews: [UIView] = []
-    let dateLabel                = GFBodyLabel(textAlignment: .center)
+    let dateLabel           = GFBodyLabel(textAlignment: .center)
     
     var userName: String!
     weak var delegate: FollowersListVCDelegate!
@@ -66,7 +66,7 @@ class UserInfoVC: UIViewController {
     }
     
     func layoutUI(){
-        let padding: CGFloat = 20
+        let padding: CGFloat    = 20
         let itemHeight: CGFloat = 140
         
         itemViews = [headerView, itemView1, itemView2, dateLabel]
