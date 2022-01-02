@@ -23,6 +23,7 @@ class FollowersVC: GFDataLoadingVC {
     var page                        = 1
     var hasMoreFollowers            = true
     var isSearching                 = false
+    var isLoadingFollowers          = false
     var lastScrollPosition: CGFloat = 0
     
     override func viewDidLoad() {
@@ -66,6 +67,7 @@ class FollowersVC: GFDataLoadingVC {
     }
     
     func getFollowers(username: String, page: Int){
+        isLoadingFollowers = true
         showLoadingView()
         NetworkManager.shared.getFollowers(for: userName, page: page) { [weak self] result in
             guard let self = self else { return }
@@ -91,6 +93,7 @@ class FollowersVC: GFDataLoadingVC {
               }
             }
         }
+        isLoadingFollowers = false
     }
     
     func configureDataSource(){
@@ -155,7 +158,7 @@ extension FollowersVC: UICollectionViewDelegate {
         let height        = scrollView.frame.size.height
         
         if offsetY > contentHeight - height{
-            guard hasMoreFollowers else {return}
+            guard hasMoreFollowers, !isLoadingFollowers else {return}
             page += 1
             getFollowers(username: userName, page: page)
         }
