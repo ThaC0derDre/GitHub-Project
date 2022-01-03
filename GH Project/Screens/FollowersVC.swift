@@ -75,15 +75,7 @@ class FollowersVC: GFDataLoadingVC {
             
             switch result{
             case .success(let followers):
-                if followers.count < 100 {self.hasMoreFollowers = false}
-                self.followers.append(contentsOf: followers)
-                
-                if self.followers.isEmpty{
-                    let message = "This user has no followers. Maybe be the first?"
-                    DispatchQueue.main.async { self.showEmptyStateScreen(with: message, in: self.view) }
-                    return
-                }
-                self.updateData(with: self.followers)
+                self.updateUI(with: followers)
                 
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Error", message: error.rawValue, button: "Ok")
@@ -96,6 +88,20 @@ class FollowersVC: GFDataLoadingVC {
         isLoadingFollowers = false
     }
     
+    
+    func updateUI(with followers: [Followers]){
+        if followers.count < 100 {self.hasMoreFollowers = false}
+        self.followers.append(contentsOf: followers)
+        
+        if self.followers.isEmpty{
+            let message = "This user has no followers. Maybe be the first?"
+            DispatchQueue.main.async { self.showEmptyStateScreen(with: message, in: self.view) }
+            return
+        }
+        self.updateData(with: self.followers)
+    }
+    
+    
     func configureDataSource(){
         dataSource = UICollectionViewDiffableDataSource<Section, Followers>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as! FollowerCell
@@ -103,12 +109,15 @@ class FollowersVC: GFDataLoadingVC {
             return cell
         })
     }
+    
+    
     func confirgureSearchBar(){
         let searchController                    = UISearchController()
         searchController.searchBar.placeholder  = "Enter User Name"
         searchController.searchResultsUpdater   = self
         navigationItem.searchController         = searchController
     }
+    
     
     func updateData(with followers:[Followers]){
         var snapshot = NSDiffableDataSourceSnapshot<Section,Followers>()
@@ -128,25 +137,30 @@ class FollowersVC: GFDataLoadingVC {
             
             switch result {
             case .success(let user):
-                let favorite = Followers(login: user.login, avatarUrl: user.avatarUrl)
-                
-                PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
-                    guard let self = self else { return }
-                    
-                    guard let error = error else {
-                        
-                        self.presentGFAlertOnMainThread(title: "Added to Favorites!", message: "Favorited users can be found in the 'Favorites' tab below", button: "Ok")
-                        return
-                    }
-                    
-                    self.presentGFAlertOnMainThread(title: "Could not favorite user", message: error.rawValue, button: "Ok.")
-                }
+                self.addToFavorites(user: user)
                 
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Could not favorite this user", message: error.rawValue, button: "Ok")
             }
         }
         
+    }
+    
+    
+    func addToFavorites(user: User){
+        let favorite = Followers(login: user.login, avatarUrl: user.avatarUrl)
+        
+        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+            guard let self = self else { return }
+            
+            guard let error = error else {
+                
+                self.presentGFAlertOnMainThread(title: "Added to Favorites!", message: "Favorited users can be found in the 'Favorites' tab below", button: "Ok")
+                return
+            }
+            
+            self.presentGFAlertOnMainThread(title: "Could not favorite user", message: error.rawValue, button: "Ok.")
+        }
     }
 }
 
