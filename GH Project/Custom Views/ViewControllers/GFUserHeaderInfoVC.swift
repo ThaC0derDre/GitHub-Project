@@ -21,7 +21,7 @@ class GFUserHeaderInfoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addSubviews()
+        view.addSubviews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
         layoutUI()
         configureUIElements()
     }
@@ -44,16 +44,6 @@ class GFUserHeaderInfoVC: UIViewController {
         bioLabel.text               = user.bio ?? "No Bio Added Yet.."
         bioLabel.numberOfLines      = 3
         locationImageView.image     = SFSymbols.location
-    }
-    
-    
-    func addSubviews(){
-        view.addSubview(avatarImageView)
-        view.addSubview(usernameLabel)
-        view.addSubview(nameLabel)
-        view.addSubview(locationImageView)
-        view.addSubview(locationLabel)
-        view.addSubview(bioLabel)
     }
     
     
