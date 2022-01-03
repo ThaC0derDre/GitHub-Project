@@ -106,7 +106,6 @@ class NetworkManager {
                       completed(nil)
                       return
                   }
-            
             self.cache.setObject(image, forKey: cacheKey)
             completed(image)
         }

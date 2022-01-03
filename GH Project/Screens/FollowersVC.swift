@@ -20,11 +20,11 @@ class FollowersVC: GFDataLoadingVC {
     var filteredFollowers: [Followers] = []
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Followers>!
-    var page                        = 1
-    var hasMoreFollowers            = true
-    var isSearching                 = false
-    var isLoadingFollowers          = false
-    var lastScrollPosition: CGFloat = 0
+    var page                           = 1
+    var hasMoreFollowers               = true
+    var isSearching                    = false
+    var isLoadingFollowers             = false
+    var lastScrollPosition: CGFloat    = 0
     
     
     override func viewDidLoad() {
