@@ -22,24 +22,27 @@ class UserInfoVC: GFDataLoadingVC {
     
     var userName: String!
     weak var delegate: FollowersListVCDelegate!
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        
         layoutUI()
         getUserInfo()
     }
     
-   @objc func dismissVC(){
+    
+    @objc func dismissVC(){
         dismiss(animated: true)
     }
+    
     
     func configureViewController(){
         view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
         navigationItem.rightBarButtonItem = doneButton
     }
+    
     
     func getUserInfo(){
         NetworkManager.shared.getUserInfo(for: userName) { [weak self] result in
@@ -53,6 +56,7 @@ class UserInfoVC: GFDataLoadingVC {
         }
     }
     
+    
     func configureUIElements(with user: User){
         let repoItemVC          = GFRepoItemVC(user: user)
         repoItemVC.delegate     = self
@@ -64,6 +68,7 @@ class UserInfoVC: GFDataLoadingVC {
         self.add(childVC: followerItemVC, to: self.itemView2)
         self.dateLabel.text = "GitHub since \(user.createdAt.convertToMonthYearFormat())"
     }
+    
     
     func layoutUI(){
         let padding: CGFloat    = 20
@@ -96,6 +101,7 @@ class UserInfoVC: GFDataLoadingVC {
         ])
     }
     
+    
     func add(childVC: UIViewController, to containerView: UIView){
         addChild(childVC)
         containerView.addSubview(childVC.view)
@@ -104,15 +110,17 @@ class UserInfoVC: GFDataLoadingVC {
     }
 }
 
+
 extension UserInfoVC: UserInfoVCDelegate {
+    
     func didTapGitHubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
             presentGFAlertOnMainThread(title: "Invalid User URL", message: "The URL attached to this User is invalid", button: "Ok")
             return
         }
         presentSafariVC(with: url)
-        
     }
+    
     
     func didTapGetFollowers(for user: User) {
         guard user.followers != 0 else {
@@ -122,6 +130,4 @@ extension UserInfoVC: UserInfoVCDelegate {
         delegate.didRequestFollowers(for: user.login)
         dismissVC()
     }
-    
-    
 }

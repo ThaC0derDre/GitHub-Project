@@ -17,7 +17,8 @@ class GFUserHeaderInfoVC: UIViewController {
     let bioLabel = GFBodyLabel(textAlignment: .left)
     
     var user: User!
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
@@ -33,6 +34,7 @@ class GFUserHeaderInfoVC: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     func configureUIElements(){
         avatarImageView.downloadImage(fromURL: user.avatarUrl)
@@ -54,6 +56,7 @@ class GFUserHeaderInfoVC: UIViewController {
         view.addSubview(bioLabel)
     }
     
+    
     func layoutUI(){
         let padding: CGFloat          = 20
         let textImagePadding: CGFloat = 12
@@ -69,7 +72,7 @@ class GFUserHeaderInfoVC: UIViewController {
             usernameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: textImagePadding),
             usernameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             usernameLabel.heightAnchor.constraint(equalToConstant: 38),
-        
+            
             nameLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor, constant: 8),
             nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: textImagePadding),
             nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),

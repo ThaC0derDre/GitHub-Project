@@ -8,11 +8,12 @@
 import UIKit
 
 class GFRepoItemVC: GFItemInfoVC {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
+    
     
     private func configure(){
         itemInfoView1.set(itemInfoType: .repos, withCount: user.publicRepos)

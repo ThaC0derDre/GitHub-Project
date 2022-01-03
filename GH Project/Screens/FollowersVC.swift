@@ -26,6 +26,7 @@ class FollowersVC: GFDataLoadingVC {
     var isLoadingFollowers          = false
     var lastScrollPosition: CGFloat = 0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -33,12 +34,14 @@ class FollowersVC: GFDataLoadingVC {
         configureCollectionView()
         getFollowers(username: userName, page: page)
         configureDataSource()
-       
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
     
     init(username: String) {
         super.init(nibName: nil, bundle: nil)
@@ -47,9 +50,9 @@ class FollowersVC: GFDataLoadingVC {
         userName = username
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
     
     func configureCollectionView(){
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.configureCollectionFlowLayout(in: view))
@@ -59,12 +62,14 @@ class FollowersVC: GFDataLoadingVC {
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
+    
     func configureViewController(){
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
     }
+    
     
     func getFollowers(username: String, page: Int){
         isLoadingFollowers = true
@@ -81,8 +86,8 @@ class FollowersVC: GFDataLoadingVC {
                 self.presentGFAlertOnMainThread(title: "Error", message: error.rawValue, button: "Ok")
                 //Pop back to Search if error
                 DispatchQueue.main.async {
-                self.navigationController?.popViewController(animated: true)
-              }
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         }
         isLoadingFollowers = false
@@ -128,6 +133,7 @@ class FollowersVC: GFDataLoadingVC {
         }
     }
     
+    
     @objc func addButtonTapped(){
         showLoadingView()
         
@@ -158,14 +164,13 @@ class FollowersVC: GFDataLoadingVC {
                 self.presentGFAlertOnMainThread(title: "Added to Favorites!", message: "Favorited users can be found in the 'Favorites' tab below", button: "Ok")
                 return
             }
-            
             self.presentGFAlertOnMainThread(title: "Could not favorite user", message: error.rawValue, button: "Ok.")
         }
     }
 }
 
+
 extension FollowersVC: UICollectionViewDelegate {
-    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offsetY       = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
@@ -177,6 +182,8 @@ extension FollowersVC: UICollectionViewDelegate {
             getFollowers(username: userName, page: page)
         }
     }
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let currentArray  = isSearching ? filteredFollowers : followers
         let followers     = currentArray[indexPath.item]
@@ -185,11 +192,12 @@ extension FollowersVC: UICollectionViewDelegate {
         destVC.delegate   = self
         let navController = UINavigationController(rootViewController: destVC)
         present(navController, animated: true)
-        
     }
 }
 
+
 extension FollowersVC: UISearchResultsUpdating, UISearchBarDelegate {
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else {
             filteredFollowers.removeAll()
@@ -203,9 +211,10 @@ extension FollowersVC: UISearchResultsUpdating, UISearchBarDelegate {
     }
 }
 
+
 extension FollowersVC: FollowersListVCDelegate {
+    
     func didRequestFollowers(for username: String) {
-        
         userName         = username
         title            = username
         page             = 1
@@ -222,9 +231,11 @@ extension FollowersVC: FollowersListVCDelegate {
         getFollowers(username: username, page: page)
     }
     
+    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         lastScrollPosition = scrollView.contentOffset.y
     }
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if lastScrollPosition < scrollView.contentOffset.y {
@@ -233,6 +244,4 @@ extension FollowersVC: FollowersListVCDelegate {
             navigationItem.hidesSearchBarWhenScrolling = false
         }
     }
-    
-    
 }

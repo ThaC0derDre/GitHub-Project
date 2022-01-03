@@ -16,17 +16,16 @@ class FollowerCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
-        
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
     
     func set(followers:Followers){
         usernameLabel.text = followers.login
         avatarImageView.downloadImage(fromURL: followers.avatarUrl)
     }
+    
     
     private func configure(){
         addSubview(avatarImageView)
@@ -46,5 +45,4 @@ class FollowerCell: UICollectionViewCell {
             usernameLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
-    
 }

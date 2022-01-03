@@ -10,10 +10,11 @@ import UIKit
 enum ItemInfoType{ case repos, gists, followers, following }
 
 class GFItemInfoView: UIView {
-
+    
     var symbolImageView = UIImageView()
     var titleLabel      = GFTitleLabel(textAlignment: .left, fontSize: 14)
     var countLabel      = GFTitleLabel(textAlignment: .center, fontSize: 14)
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,6 +24,7 @@ class GFItemInfoView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     private func configure(){
         addSubview(symbolImageView)
@@ -38,7 +40,7 @@ class GFItemInfoView: UIView {
             symbolImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             symbolImageView.heightAnchor.constraint(equalToConstant: 20),
             symbolImageView.widthAnchor.constraint(equalToConstant: 20),
-        
+            
             titleLabel.centerYAnchor.constraint(equalTo: symbolImageView.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: symbolImageView.trailingAnchor, constant: 12),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -51,9 +53,10 @@ class GFItemInfoView: UIView {
         ])
     }
     
+    
     func set(itemInfoType: ItemInfoType, withCount count: Int ){
         switch itemInfoType {
-    case .repos:
+        case .repos:
             symbolImageView.image = SFSymbols.repos
             titleLabel.text       = "Public repos"
         case .gists:
@@ -68,5 +71,4 @@ class GFItemInfoView: UIView {
         }
         countLabel.text           = String(count)
     }
-    
 }

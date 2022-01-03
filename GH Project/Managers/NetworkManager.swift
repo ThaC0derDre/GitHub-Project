@@ -8,6 +8,7 @@
 import UIKit
 
 class NetworkManager {
+    
     static let shared   = NetworkManager()
     private let baseUrl = "https://api.github.com/users/"
     let cache           = NSCache<NSString, UIImage>()
@@ -45,9 +46,10 @@ class NetworkManager {
                 completed(.failure(.invalidData))
             }
         }
-                //Begin call
+        //Begin call
         task.resume()
     }
+    
     
     func getUserInfo(for userName: String, completed: @escaping(Result<User, GFError>) -> Void){
         let endpoint = baseUrl + "\(userName)"
@@ -81,9 +83,10 @@ class NetworkManager {
                 completed(.failure(.invalidData))
             }
         }
-                //Begin call
+        //Begin call
         task.resume()
     }
+    
     
     func downloadImage(from urlString: String, completed: @escaping (UIImage?) -> Void) {
         let cacheKey = NSString(string: urlString)
@@ -103,9 +106,9 @@ class NetworkManager {
                       completed(nil)
                       return
                   }
-                  
-                self.cache.setObject(image, forKey: cacheKey)
-                completed(image)
+            
+            self.cache.setObject(image, forKey: cacheKey)
+            completed(image)
         }
         task.resume()
     }
