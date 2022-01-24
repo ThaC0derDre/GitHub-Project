@@ -36,11 +36,47 @@ class UserInfoVC: GFDataLoadingVC {
         dismiss(animated: true)
     }
     
+    @objc func favoriteUser() {
+            showLoadingView()
+            
+            NetworkManager.shared.getUserInfo(for: userName) { [weak self] result in
+                guard let self = self else { return }
+                self.stopLoadingView()
+                
+                switch result {
+                case .success(let user):
+                    self.addToFavorites(user: user)
+                    
+                case .failure(let error):
+                    self.presentGFAlertOnMainThread(title: "Could not favorite this user", message: error.rawValue, button: "Ok")
+                }
+            }
+            
+        }
+        
+        
+        func addToFavorites(user: User){
+            let favorite = Followers(login: user.login, avatarUrl: user.avatarUrl)
+            
+            PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+                guard let self = self else { return }
+                
+                guard let error = error else {
+                    
+                    self.presentGFAlertOnMainThread(title: "Added to Favorites!", message: "Favorited users can be found in the 'Favorites' tab below", button: "Ok")
+                    return
+                }
+                self.presentGFAlertOnMainThread(title: "Could not favorite user", message: error.rawValue, button: "Ok.")
+            }
+        }
+    
     
     func configureViewController(){
         view.backgroundColor = .systemBackground
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
-        navigationItem.rightBarButtonItem = doneButton
+        let doneButton  = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
+        let favButton   = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(favoriteUser))
+        navigationItem.rightBarButtonItem   = doneButton
+        navigationItem.leftBarButtonItem    = favButton
     }
     
     
